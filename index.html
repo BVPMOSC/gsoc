@@ -1,4 +1,4 @@
-gi<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <!-- Standard Meta -->
@@ -149,43 +149,14 @@ gi<!DOCTYPE html>
       <div class="ui stackable two column middle aligned grid">
       <div class="nine wide column">
         <h1 class="ui inverted header">
-          Community for developers
+         GSoC'18
         </h1>
-        <h2>Explore, Learn, Share.</h2>
+        <h2>Google Summer of Code is a global program focused on bringing more student developers into open source software development. Students work with an open source organization on a 3 month programming project during their break from school.</h2>
         <!-- <div class="ui huge primary button">Learn More <i class="down arrow icon"></i></div> -->
       </div>
       <div class="seven wide column">
-          <div class="ui positive message hidden" id="mess">
-              <div class="header">
-                Your user registration is successful.
-              </div>
-          </div>
-         <form style="margin-top:50px" class="ui form attached fluid segment custom-seg">
-            <div class="ui ">
-              <div class="field">
-                <div class="ui left icon input">
-                  <i class="user icon"></i>
-                  <input type="text" name="name" placeholder="Name*">
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui left icon input">
-                  <i class="mail icon"></i>
-                  <input type="text" name="email" placeholder="E-mail address*">
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui left icon input">
-                  <i class="github icon"></i>
-                  <input type="url" name="github" placeholder="Github Profile">
-                </div>
-              </div>
-               <div class="field">
-                <div class="ui left icon input">
-                  <i class="mobile icon"></i>
-                  <input type="text" name="phone" placeholder="Phone Number">
-                </div>
-              </div>
+ <h2>Our group contains all GSoC'17 students from our college which will help you to get assistance on everything except code like finding projects, getting into minor bugs and solving them, reviewing their application.</h2>
+
               <div id="submitForm" class="ui fluid large teal submit button">Count me in <i class="right arrow icon"></i></div>
             </div>
           </form>
@@ -200,98 +171,12 @@ gi<!DOCTYPE html>
   <script type="text/javascript" src="semantic.min.js"></script>
 
   <script type="text/javascript">
-  $('.ui .form').submit(function(e){
-    e.preventDefault()
-    if( $('.form').form('is valid') == true ){
-        $('#submitForm').addClass('disabled')
-        name = $('input[name="name"]').val()
-        email = $('input[name="email"]').val()
-        github = $('input[name="github"]').val()
-        phone = $('input[name="phone"]').val()
-        writeUserData(name, email, github, phone)
-    }
-  })
-
-    $(document)
-    .ready(function() {
-      $('.ui.form')
-        .form({
-          fields: {
-            email: {
-              identifier  : 'email',
-              rules: [
-                {
-                  type   : 'empty',
-                  prompt : 'Please enter your e-mail'
-                },
-                {
-                  type   : 'email',
-                  prompt : 'Please enter a valid e-mail'
-                }
-              ]
-            },
-            name: {
-              identifier  : 'name',
-              rules: [
-                {
-                  type   : 'empty',
-                  prompt : 'Please enter your name'
-                }
-              ]
-            },
-            phone: {
-              identifier  : 'phone',
-              rules: [
-                {
-                  type   : 'empty',
-                  prompt : 'Please enter your phone'
-                }
-              ]
-            }
-          },
-        })
-    })
-  ;
-
-        // }, {
-        //     onSuccess: function(e){ 
-
-        //         console.log('sd')
-        //         
-        //     }
+  $('.button').click(function(e){
+     window.open("https://docs.google.com/forms/d/e/1FAIpQLSfQjeWSgHKVmE8s1-6wiUqB8D-vql2GxlW3MPNZotTrh-aLqw/viewform","form");
+    });
   </script>
 
 
-  <!-- Firebase Portion -->
-
-    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-messaging.js"></script>
-
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCY6ZkAsb-CTT2mEu-J4FeaeF90USDCU7k",
-      authDomain: "learning-5e04c.firebaseapp.com",
-      databaseURL: "https://learning-5e04c.firebaseio.com",
-      projectId: "learning-5e04c",
-      storageBucket: "learning-5e04c.appspot.com",
-      messagingSenderId: "627769457667"
-    };
-    firebase.initializeApp(config);
-
-    function writeUserData(name, email, github, phone) {
-      firebase.database().ref('forms').push().set({
-        name: name,
-        email: email,
-        github : github,
-        phone: phone
-      },
-      function(){
-        $('#mess').removeClass('hidden')
-      });
-    }
-  </script>
 </body>
 
 </html>
